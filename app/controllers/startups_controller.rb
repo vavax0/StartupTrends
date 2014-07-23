@@ -15,8 +15,11 @@ class StartupsController < ApplicationController
 		@startup = Startup.new(startup_params)
 
 		if @startup.save
-			create_website_thumbnail(@startup)
-			redirect_to @startup
+			if create_website_thumbnail(@startup)
+				redirect_to @startup
+			else
+				@startup.destroy
+				render action: :new
 		else
 			render action: :new
 		end
