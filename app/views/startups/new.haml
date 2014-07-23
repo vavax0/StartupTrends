@@ -1,0 +1,12 @@
+= form_for @startup do |f|
+
+  = f.label :name
+  = f.text_field :name
+  = f.label :short_description
+  = f.text_field :short_description, as: :text, input_html: { cols: 50, rows: 3 }
+  = f.label :description
+  = f.text_field :description, as: :text, hint: "comma separated values", input_html: { cols: 50, rows: 3 }
+  = f.label :website_url
+  = f.text_field :website_url
+
+  = f.button :submit
