@@ -1,2 +1,13 @@
-- @startups.each do |startup|
-	=%h1 startup.name
+= render :partial => "menu"
+= render :partial => "header"
+
+%div.jumbotron.box
+	%div.container
+		-@startups.each do | startup |
+			%div.row
+				%div.col-md-6
+					%h2= startup.name
+					%h4= startup.short_description
+					%p=  startup.description
+				%div.col-md-6
+					

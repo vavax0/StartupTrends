@@ -20,6 +20,7 @@ class StartupsController < ApplicationController
 			else
 				@startup.destroy
 				render action: :new
+			end
 		else
 			render action: :new
 		end
