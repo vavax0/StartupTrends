@@ -2,6 +2,7 @@ class Startup < ActiveRecord::Base
 
 	validates :name, :description, :website_url, presence: true
 	validates :short_description, length: { maximum: 50 }
+	validates :website_url, presence: true, url: true
 
 	before_validation :smart_add_url_protocol
 

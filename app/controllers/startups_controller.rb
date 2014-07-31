@@ -1,3 +1,5 @@
+require "net/http"
+
 class StartupsController < ApplicationController
 
 	before_action :set_startup, only: [ :show, :edit, :update, :destroy ]
@@ -24,10 +26,11 @@ class StartupsController < ApplicationController
 		else
 			render action: :new
 		end
+
 	end
 
 	def index
-		@startups = Startup.all.paginate(:page => params[:page], :per_page => 5)
+		@startups = Startup.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 
 	private
@@ -49,6 +52,8 @@ class StartupsController < ApplicationController
 		startup.website_thumbnail = file
 		startup.save
 		file.unlink
+		rescue
+			false
 	end
 
 end

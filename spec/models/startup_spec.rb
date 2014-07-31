@@ -23,15 +23,14 @@ describe Startup do
 		expect(startup).to_not be_valid
 	end
 
-	it 'is not valid without image_url' do
-		startup.image_url = nil
-		expect(startup).to_not be_valid
-	end
-
 	it 'should not have too long "short describtion"' do
 		startup.short_description = 'a'*51
 		expect(startup).to_not be_valid
 	end
 
+	it "should have website_url that is valid and exists" do
+		startup.website_url = "nothing"
+		expect(startup).to_not be_valid
+	end
 
 end

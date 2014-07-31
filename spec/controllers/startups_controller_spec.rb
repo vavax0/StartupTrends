@@ -27,7 +27,7 @@ RSpec.describe StartupsController, :type => :controller do
 
 	describe "POST create" do
 
-		let(:valid_attributes) { { :name => "lol", :description => "lol", :short_description => "lol", :website_url => "lol" } }
+		let(:valid_attributes) { { :name => "lol", :description => "lol", :short_description => "lol", :website_url => "google.pl" } }
 		
 		it 'creates a new Startup' do
 			expect {
@@ -39,6 +39,10 @@ RSpec.describe StartupsController, :type => :controller do
 		it 'should redirect to created startup' do
 			post :create, { :startup => valid_attributes } 
 			expect(response).to redirect_to Startup.last
+		end
+
+		it 'should destroy startup if website_url is not available' do
+			
 		end
 	end
 
