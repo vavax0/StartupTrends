@@ -10,11 +10,11 @@ RSpec.describe StartupsController, :type => :controller do
 			get :show, id: startup.id
 		end
 
-		it 'exposes posts' do
+		it 'exposes startups' do
 			expect(controller.index).to include startup
 		end 
 
-		it 'should expose specific post' do
+		it 'should expose specific startup' do
 			expect(assigns(:startup)).to eq startup
 		end
 
@@ -28,6 +28,8 @@ RSpec.describe StartupsController, :type => :controller do
 	describe "POST create" do
 
 		let(:valid_attributes) { { :name => "lol", :description => "lol", :short_description => "lol", :website_url => "google.pl" } }
+
+		subject { post :create, { :startup => valid_attributes } }
 		
 		it 'creates a new Startup' do
 			expect {
@@ -41,9 +43,17 @@ RSpec.describe StartupsController, :type => :controller do
 			expect(response).to redirect_to Startup.last
 		end
 
-		it 'should destroy startup if website_url is not available' do
-			
+		it 'flashes a success message' do 
+			expect(subject.request.flash[:success]).to_not be_nil
 		end
+
+
+		it 'flashes a error messages' do
+			valid_attributes.website_url = " lol "
+			expect(subject.request.flash[:error]).to_not be_nil
+		end
+
+
 	end
 
 end

@@ -18,12 +18,15 @@ class StartupsController < ApplicationController
 
 		if @startup.save
 			if create_website_thumbnail(@startup)
+				flash[:success] = 'Startup was successfuly created. Please wait until administrator accept your request.'
 				redirect_to @startup
 			else
 				@startup.destroy
+				flash.now[:error] = @startup.errors.full_messages
 				render action: :new
 			end
 		else
+			flash.now[:error] = @startup.errors.full_messages
 			render action: :new
 		end
 
