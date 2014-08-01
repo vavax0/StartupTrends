@@ -49,8 +49,13 @@ RSpec.describe StartupsController, :type => :controller do
 
 
 		it 'flashes a error messages' do
-			valid_attributes.website_url = " lol "
+			valid_attributes[:website_url] = " lol "
 			expect(subject.request.flash[:error]).to_not be_nil
+		end
+
+		it 'should add "http" protocol if needed' do
+			post :create, { :startup => valid_attributes }
+			expect(Startup.last.website_url).to eq "http://google.pl"
 		end
 
 
