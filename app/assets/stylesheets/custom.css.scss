@@ -1,1 +1,92 @@
 @import "bootstrap";
+
+html {
+	font-family: 'Ubuntu', sans-serif;
+	background: #EEE;
+}
+
+.jumbotron {
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+}
+
+.top-jumb { 
+	background: #27ae60;
+	margin-bottom: 0;
+}
+
+.navbar { 
+	background: none;
+	border: none;
+	font-family: 'Ubuntu', sans-serif;
+}
+
+.navbar-inverse .navbar-brand {
+	font-family: 'Montserrat', sans-serif;
+	color: #ecf0f1;
+	font-size: 25px;
+}
+
+ul.nav.navbar-nav li a {
+	color: #ecf0f1;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 600;
+}
+
+
+ul.nav.navbar-nav li a:hover { 
+	background: none;
+	color: #34495e;		
+}
+
+ul.nav.navbar-nav li.active a { 
+	background: none;
+	color: #34495e;	
+}
+
+ul.nav.navbar-nav li.active a:hover { 
+	background: none;		
+}
+
+.box {
+	width: 70%;
+	padding: 20px 0px;
+	color: #ecf0f1;
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+}
+
+.box h1 {
+	font-size: 35px;
+}
+
+.box a {
+	color: #2c3e50;
+}
+
+.box a:hover {
+	color: #34495e;
+	text-decoration: none;
+}
+
+
+.pagination {
+	background: none; 
+}
+
+.most-viewed {
+	font-family: 'Ubuntu', sans-serif;
+	padding-top: 15px;
+}
+
+.most-viewed .mini-box {
+	text-align: center;
+}
+
+.mini-boxes {
+	margin-top: 10px;
+}
+
+.green {
+	color: #27ae60;
+}
