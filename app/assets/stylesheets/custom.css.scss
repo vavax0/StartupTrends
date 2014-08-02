@@ -88,6 +88,7 @@ ul.nav.navbar-nav li.active a:hover {
 .most-viewed .mini-box {
 	text-align: center;
 	padding-bottom: 15px;
+	margin-top: 15px;
 }
 
 .most-viewed .mini-box img {
@@ -156,3 +157,6 @@ ul.nav.navbar-nav li.active a:hover {
     float: none;
 }
 
+.startup-row img {
+	border: 3px solid inherit;
+}
