@@ -34,13 +34,30 @@
 			%h3.green
 				Najczęściej odwiedzane
 			- @startups.last(3).each do | startup |
-				%div.col-md-4.mini-box
-					%h3= startup.name
-					%p=  startup.short_description
-					= image_tag("#{startup.website_thumbnail(:thumb)}", class: "img-rounded")
-					%button.btn.btn-info.center-block
-						=link_to "Zobacz", startup_path(startup)
+				%a{ :href => startup_path(startup) }
+					%div.col-md-4.mini-box
+						%h3= startup.name
+						%p=  startup.short_description
+						= image_tag("#{startup.website_thumbnail(:thumb)}", class: "img-rounded")
+						%button.btn.btn-info.btn-self.center-block
+							=link_to "Zobacz", startup_path(startup)
+
+%div.jumbotron.list
+	%div.container
+		%h3 Startup'y
+		- @startups.each do | startup |
+			%div.row.startup-row
+				%div.col-md-6.parent
+					%div.child
+						%h3= startup.name
+						%h4= startup.short_description
+						%p=  if startup.description.length > 120 then startup.description.first(120) + "..." else startup.description end
+						%button.btn.btn-success.btn-lg
+							=link_to "Zobacz", startup_path(startup)
+				%div.col-md-6
+					= image_tag("#{startup.website_thumbnail(:medium)}", class: "center-block")
+
+
 
 				
-= will_paginate @startups
-					
+= will_paginate @startups		
