@@ -27,7 +27,7 @@ RSpec.describe StartupsController, :type => :controller do
 
 	describe "POST create" do
 
-		let(:valid_attributes) { { :name => "lol", :description => "lol", :short_description => "lol", :website_url => "google.pl" } }
+		let(:valid_attributes) { { :name => "lol", :description => "lol", :short_description => "lol", :website_url => "google.pl", :category_id => 3 } } 
 
 		subject { post :create, { :startup => valid_attributes } }
 		
@@ -36,7 +36,6 @@ RSpec.describe StartupsController, :type => :controller do
 				post :create, { :startup => valid_attributes } 
 			}.to change(Startup, :count).by(1)
 		end
-
 
 		it 'should redirect to created startup' do
 			post :create, { :startup => valid_attributes } 

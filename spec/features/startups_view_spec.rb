@@ -16,7 +16,7 @@ describe "The Startup view", type: :feature do
 		end
 
 		it "shows each startup's name" do
-			Startup.all.each do |strtup|
+			Startup.all.each do |startup|
 				expect(page).to have_content(startup.name)
 			end
 		end
