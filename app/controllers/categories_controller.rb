@@ -4,11 +4,11 @@ class CategoriesController < ApplicationController
 
 	def index
 		@categories = Category.all
-		@startups = Startup.all
+		@startups = Startup.order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
 	end
 
 	def show
-		@startups = @category.startups
+		@startups = @category.startups.order("created_at DESC").paginate(:page => params[:page], per_page => 15)
 	end
 
 	private
