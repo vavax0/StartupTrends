@@ -8,6 +8,7 @@
   = f.text_field :description, as: :text, hint: "comma separated values", input_html: { cols: 50, rows: 3 }
   = f.label :website_url
   = f.text_field :website_url
+  = f.collection_select :category_id, Category.order(:name),:id,:name
 
   = f.button :submit
 

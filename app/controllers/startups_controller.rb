@@ -16,12 +16,13 @@ class StartupsController < ApplicationController
 
 		@startup.smart_add_url_protocol
 
-		if @startup.websitethumbnail == nil then create_website_thumbnail(@startup) end
+		unless @startup.website_thumbnail.exists? then create_website_thumbnail(@startup) end
 
 			if @startup.save
 				flash[:success] = 'Startup was successfuly created. Please wait until administrator accept your request.'
 				redirect_to @startup
 			else
+				@startup.destroy
 				flash.now[:error] = @startup.errors.full_messages
 				render action: :new
 			end
@@ -40,7 +41,7 @@ private
 	end
 
 	def startup_params
-		params.require(:startup).permit(:name, :description, :short_description, :website_url)
+		params.require(:startup).permit(:name, :description, :short_description, :website_url, :category_id)
 	end
 
 	def create_website_thumbnail(startup)

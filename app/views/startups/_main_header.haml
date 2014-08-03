@@ -10,12 +10,14 @@
 				%a.navbar-brand StartupList
 			%div.collapse.navbar-collapse.pull-right
 				%ul.nav.navbar-nav
-					%li.active
+					%li
 						%a{ :href => root_path } Strona Główna
 					%li
 						%a{ :href => "startup_list" } Startupy
 					%li
 						%a{ :href => new_startup_path } Dodaj Startup
+					%li
+						%a{ :href => categories_path } Kategorie
 					%li
 						%a{ :href => "#" } O nas
 					%li

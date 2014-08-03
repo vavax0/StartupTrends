@@ -2,7 +2,8 @@ require 'rails_helper'
 
 describe Startup do
 
-	let(:startup) { FactoryGirl.create(:startup) }
+	let(:startup)  { FactoryGirl.create(:startup) }
+	let(:category) { FactoryGirl.create(:category) }
 
 	it 'has name, description and website_url' do
 		expect(startup).to be_valid
@@ -33,4 +34,12 @@ describe Startup do
 		expect(startup).to_not be_valid
 	end
 
+	it "should be associated with category" do
+		expect(startup).to respond_to(:category)
+	end
+
+	it 'should be invalid without category name' do
+		startup.category = nil
+		expect(startup).to_not be_valid
+	end
 end

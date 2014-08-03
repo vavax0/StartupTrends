@@ -9,6 +9,7 @@ FactoryGirl.define do
 		website_thumbnail_content_type "image/jpeg" 
 		website_thumbnail_file_size 61848 
 		website_thumbnail_updated_at "2014-08-01 07:32:13"
+		category_id 3
 		created_at Time.now
 	end
 end

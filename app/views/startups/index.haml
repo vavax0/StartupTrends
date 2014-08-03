@@ -26,6 +26,7 @@
 				%div.col-md-6.parent
 					%div.child
 						%h3= startup.name
+						%h5= "Kategoria: #{startup.category.name}"
 						%h4= startup.short_description
 						%p=  if startup.description.length > 120 then startup.description.first(120) + "..." else startup.description end
 						%button.btn.btn-success.btn-lg

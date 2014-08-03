@@ -2,7 +2,7 @@ require 'rails_helper'
 require 'capybara/rails'
 require 'capybara/rspec'
 
-describe "The Startup view", type: :feature do
+describe "The Category view", type: :feature do
 
 	describe "Index" do
 
@@ -15,14 +15,16 @@ describe "The Startup view", type: :feature do
 			visit startups_path
 		end
 
-		it "shows each startup's name" do
-			Startup.all.each do |strtup|
-				expect(page).to have_content(startup.name)
+		it "shows each category name" do
+			Category.all.each do |category|
+					expect(page).to have_content(category.name)
 			end
 		end
 
-		it 'has link to categories' do
-			expect(page).to have_link('Kategorie', categories_path)
+		it 'has each category link' do
+			Category.all.each do |category|
+				expect(page).to have_link(category.name, category_path(category))
+			end
 		end
 
 	end
