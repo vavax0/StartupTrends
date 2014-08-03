@@ -3,7 +3,7 @@ require 'rails_helper'
 describe Startup do
 
 	let(:startup)  { FactoryGirl.create(:startup) }
-	let(:category) { FactoryGirl.create(:category) }
+	let(:category) { FactoryGirl.create(:category, id: 3) }
 
 	it 'has name, description and website_url' do
 		expect(startup).to be_valid

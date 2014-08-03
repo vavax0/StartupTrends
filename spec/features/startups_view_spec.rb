@@ -8,8 +8,7 @@ describe "The Startup view", type: :feature do
 
 		
 		startup_1 = FactoryGirl.create(:startup)
-		startup_2 = FactoryGirl.create(:startup, name: '2nd Name')
-		startup_3 = FactoryGirl.create(:startup, name: '3rd Name')
+
 
 		before(:each) do
 			visit startups_path

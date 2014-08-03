@@ -6,13 +6,10 @@ describe "The Category view", type: :feature do
 
 	describe "Index" do
 
-		
-		startup_1 = FactoryGirl.create(:startup)
-		startup_2 = FactoryGirl.create(:startup, name: '2nd Name')
-		startup_3 = FactoryGirl.create(:startup, name: '3rd Name')
+		category_1 = FactoryGirl.create(:category)
 
 		before(:each) do
-			visit startups_path
+			visit categories_path
 		end
 
 		it "shows each category name" do

@@ -8,7 +8,7 @@ class CategoriesController < ApplicationController
 	end
 
 	def show
-		@startups = @category.startups.order("created_at DESC").paginate(:page => params[:page], per_page => 15)
+		@startups = @category.startups.order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
 	end
 
 	private

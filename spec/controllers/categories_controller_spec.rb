@@ -10,7 +10,7 @@ RSpec.describe CategoriesController, :type => :controller do
 
 		it 'populates array of categories' do
 			get :index
-			expect(assigns(:categories)).to eq([category])
+			expect(assigns(:categories)).to eq(Category.all)
 		end
 
 		it 'should render index template' do
@@ -27,9 +27,13 @@ RSpec.describe CategoriesController, :type => :controller do
 		end
 
 		it 'shows choosen category startups' do
-			expect(assigns(:startups)).to eq(category.startups)
+			expect(assigns(:startups).last).to eq(category.startups.last)
 		end
 
+		it 'should render show template' do
+			expect(response).to render_template :show
+		end
+		
 	end
 
 end
