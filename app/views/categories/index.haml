@@ -1,0 +1,34 @@
+= render :partial => "layouts/header"
+
+%div.jumbotron.most-viewed
+	%div.container
+		%div.navbar.navbar-inverse{ :role => "navigation" }
+			%div.navbar-header
+				%button.navbar-toggle{ :type => "button", :'data-toggle' => "collapse", :'data-target' => ".navbar-collapse" }
+					%span.sry-only Toggle navigation
+					%span.icon-bar
+					%span.icon-bar
+					%span.icon-bar
+			%div.collapse.navbar-collapse
+				%ul.nav.navbar-nav.category-nav.center-block
+					%li
+						%a Wszystkie
+					- @categories.each do |category|
+						%li
+							%a{ :href => categories_path }= category.name
+
+%div.jumbotron.most-viewed
+	%div.container.mini-boxes
+		%div.row
+			%h3.green
+				%i.fa.fa-heart.fa-lg 
+				Kategoria: Wszystkie
+			- @startups.last(3).each do | startup |
+				%a{ :href => startup_path(startup) }
+					%div.col-md-4.mini-box
+						%h3= startup.name
+						%p=  startup.short_description
+						= image_tag("#{startup.website_thumbnail(:thumb)}", class: "img-rounded")
+						%a{ :href => startup_path(startup) }
+							%button.btn.btn-info.btn-self.center-block
+								Zobacz

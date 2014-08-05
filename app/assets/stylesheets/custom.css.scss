@@ -1,1 +1,192 @@
 @import "bootstrap";
+
+html {
+	font-family: 'Ubuntu', sans-serif;
+	background: #EEE;
+}
+
+.jumbotron {
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+	margin-bottom: 0;
+}
+
+.top-jumb { 
+	background: #27ae60;
+	margin-bottom: 0;
+}
+
+.navbar { 
+	background: none;
+	border: none;
+	font-family: 'Ubuntu', sans-serif;
+	margin-bottom: 0px;
+}
+
+.navbar-inverse .navbar-brand {
+	font-family: 'Montserrat', sans-serif;
+	color: #ecf0f1;
+	font-size: 25px;
+}
+
+ul.nav.navbar-nav li a {
+	background: none;
+	color: #ecf0f1;
+	font-family: 'Ubuntu', sans-serif;
+	font-weight: 600;
+}
+
+ul.nav.navbar-nav li a:visited {
+	background: none;
+}
+
+
+ul.nav.navbar-nav li a:hover { 
+	background: none;
+	color: #34495e;		
+}
+
+ul.nav.navbar-nav li.active a { 
+	background: none;
+	color: #34495e;	
+}
+
+ul.nav.navbar-nav li.active a:hover { 
+	background: none;		
+}
+
+.box {
+	width: 70%;
+	padding: 20px 0px;
+	color: #ecf0f1;
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+}
+
+.box h1 {
+	font-size: 35px;
+}
+
+.box a {
+	color: #2c3e50;
+}
+
+.box a:hover {
+	color: #34495e;
+	text-decoration: none;
+}
+
+
+.pagination {
+	background: none; 
+}
+
+.most-viewed {
+	font-family: 'Ubuntu', sans-serif;
+	padding-top: 15px;
+}
+
+.most-viewed a {
+	text-decoration: none;
+	color: inherit;
+}
+
+.most-viewed .mini-box {
+	text-align: center;
+	padding-bottom: 15px;
+	margin-top: 15px;
+}
+
+.most-viewed .mini-box img {
+	text-align: center;
+	-webkit-box-shadow: 1px 1px 2px 0px rgba(50, 50, 50, 0.35);
+	-moz-box-shadow:    1px 1px 2px 0px rgba(50, 50, 50, 0.35);
+	box-shadow:         1px 1px 2px 0px rgba(50, 50, 50, 0.35);
+}
+
+.mini-boxes {
+	margin-top: 10px;
+}
+
+.green {
+	color: #27ae60;
+}
+
+.btn.btn-info.btn-self {
+	background: #2c3e50;
+	border: none;
+	border-radius: 2px;
+	color: #ecf0f1;
+	margin: 10px auto;
+}
+
+.btn a {
+	color: #ecf0f1;
+	margin-bottom: 0;
+}
+
+.btn {
+	border-radius: 2px;
+	border: none;
+}
+
+.btn.btn-info:hover {
+	background: #34495e;
+}
+
+.mini-box:hover {
+	background: #2ecc71;
+	border-radius: 1px;
+}
+
+.list {
+	background: white;
+}
+
+.startup-row { 
+	border-bottom: 1px solid #bdc3c7;
+	text-align: left;
+	padding: 40px;
+	position: relative;
+	height: 380px;
+}
+
+.parent {
+	display: table;
+	table-layout: fixed;
+	height: 100%
+}
+
+.child {
+	display: table-cell;
+    vertical-align: middle;
+    float: none;
+}
+
+.startup-row img {
+	border: 3px solid inherit;
+}
+
+#footer {
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+	padding: 25px 0;
+	color: white;
+}
+
+.category_header {
+	background: #ecf0f1;
+}
+
+.category-nav {
+	display: inline-block;
+	text-align: center;
+}
+
+ul.nav.navbar-nav.category-nav li a {
+	color: #34495e;
+}
+
+li {
+	display: inline;
+}

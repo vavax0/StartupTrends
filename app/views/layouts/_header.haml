@@ -1,0 +1,22 @@
+%div.jumbotron.top-jumb
+	%div.container
+		%div.navbar.navbar-inverse{ :role => "navigation" }
+			%div.navbar-header
+				%button.navbar-toggle{ :type => "button", :'data-toggle' => "collapse", :'data-target' => ".navbar-collapse" }
+					%span.sry-only Toggle navigation
+					%span.icon-bar
+					%span.icon-bar
+					%span.icon-bar
+				%a.navbar-brand StartupList
+			%div.collapse.navbar-collapse.pull-right
+				%ul.nav.navbar-nav
+					%li.active
+						%a{ :href => root_path } Strona Główna
+					%li
+						%a{ :href => categories_path } Startupy
+					%li
+						%a{ :href => new_startup_path } Dodaj Startup
+					%li
+						%a{ :href => "#" } O nas
+					%li
+						%a.last{ :href => "#" } Kontakt

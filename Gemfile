@@ -30,6 +30,7 @@ gem 'imgkit'
 gem 'wkhtmltopdf'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'paperclip-dropbox', '>= 1.1.7'
+gem 'will_paginate', '~> 3.0'
 
 gem 'aws-sdk'
 

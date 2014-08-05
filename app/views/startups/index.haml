@@ -1,2 +1,40 @@
-- @startups.each do |startup|
-	=%h1 startup.name
+= render :partial => "main_header"
+
+%div.jumbotron.most-viewed
+	%div.container.mini-boxes
+		%div.row
+			%h3.green
+				%i.fa.fa-heart.fa-lg 
+				Najczęściej odwiedzane
+			- @startups.last(3).each do | startup |
+				%a{ :href => startup_path(startup) }
+					%div.col-md-4.mini-box
+						%h3= startup.name
+						%p=  startup.short_description
+						= image_tag("#{startup.website_thumbnail(:thumb)}", class: "img-rounded")
+						%a{ :href => startup_path(startup) }
+							%button.btn.btn-info.btn-self.center-block
+								Zobacz
+
+%div.jumbotron.list
+	%div.container
+		%h3
+			%i.fa.fa-align-justify.fa-lg 
+			Startup'y
+		- @startups.each do | startup |
+			%div.row.startup-row
+				%div.col-md-6.parent
+					%div.child
+						%h3= startup.name
+						%h5= "Kategoria: #{startup.category.name}"
+						%h4= startup.short_description
+						%p=  if startup.description.length > 120 then startup.description.first(120) + "..." else startup.description end
+						%button.btn.btn-success.btn-lg
+							=link_to "Zobacz", startup_path(startup)
+				%div.col-md-6
+					= image_tag("#{startup.website_thumbnail(:medium)}", class: "center-block")
+
+
+
+				
+= will_paginate @startups		

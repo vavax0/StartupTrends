@@ -14,40 +14,47 @@ class StartupsController < ApplicationController
 
 		@startup = Startup.new(startup_params)
 
-		if @startup.save
-			if create_website_thumbnail(@startup)
+		@startup.smart_add_url_protocol
+
+		unless @startup.website_thumbnail.exists? then create_website_thumbnail(@startup) end
+
+			if @startup.save
+				flash[:success] = 'Startup was successfuly created. Please wait until administrator accept your request.'
 				redirect_to @startup
 			else
 				@startup.destroy
+				flash.now[:error] = @startup.errors.full_messages
 				render action: :new
-		else
-			render action: :new
-		end
+			end
 	end
+	
 
 	def index
-		@startups = Startup.all
+		@startups = Startup.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 
-	private
+	
+private
 
 	def set_startup
 		@startup = Startup.all.find(params[:id])
 	end
 
 	def startup_params
-		params.require(:startup).permit(:name, :description, :short_description, :website_url)
+		params.require(:startup).permit(:name, :description, :short_description, :website_url, :category_id)
 	end
 
 	def create_website_thumbnail(startup)
-		kit = IMGKit.new(startup.website_url)
+		kit = IMGKit.new(startup.website_url.to_s)
 		img = kit.to_img(:jpg)
-		file = Tempfile.new(["thumbnail_#{startup.name}_#{startup.id}", 'jpg'], 'tmp', :encoding => 'ascii-8bit')
+		file = Tempfile.new(["thumbnail_#{startup.name}", 'jpg'], 'tmp', :encoding => 'ascii-8bit')
 		file.write(img)
 		file.flush
 		startup.website_thumbnail = file
-		startup.save
 		file.unlink
+
+		rescue
+			false
 	end
 
 end
