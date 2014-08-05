@@ -6,9 +6,9 @@ describe "The Startup view", type: :feature do
 
 	describe "Index" do
 
-		
-		startup_1 = FactoryGirl.create(:startup)
-
+			image = File.new("#{Rails.root}/tmp/image.jpg")
+			category_1 = FactoryGirl.create(:category)
+			startup_1 = FactoryGirl.create(:startup, category_id: category_1.id)
 
 		before(:each) do
 			visit startups_path

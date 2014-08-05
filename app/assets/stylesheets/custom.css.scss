@@ -166,3 +166,27 @@ ul.nav.navbar-nav li.active a:hover {
 .startup-row img {
 	border: 3px solid inherit;
 }
+
+#footer {
+	font-family: 'Ubuntu', sans-serif;
+	text-align: center;
+	padding: 25px 0;
+	color: white;
+}
+
+.category_header {
+	background: #ecf0f1;
+}
+
+.category-nav {
+	display: inline-block;
+	text-align: center;
+}
+
+ul.nav.navbar-nav.category-nav li a {
+	color: #34495e;
+}
+
+li {
+	display: inline;
+}
