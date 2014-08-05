@@ -1,0 +1,29 @@
+%div.jumbotron.top-jumb
+	%div.container
+		%div.navbar.navbar-inverse{ :role => "navigation" }
+			%div.category-header
+				%button.navbar-toggle{ :type => "button", :'data-toggle' => "collapse", :'data-target' => ".navbar-collapse" }
+					%span.sry-only Toggle navigation
+					%span.icon-bar
+					%span.icon-bar
+					%span.icon-bar
+				%a.navbar-brand StartupList
+			%div.collapse.navbar-collapse.pull-right
+				%ul.nav.navbar-nav
+					%li
+						%a{ :href => root_path } Strona Główna
+					%li
+						%a{ :href => categories_path } Kategorie
+					%li
+						%a{ :href => new_startup_path } Dodaj Startup
+					%li
+						%a{ :href => "#" } O nas
+					%li
+						%a.last{ :href => "#" } Kontakt
+		%div.box.center-block
+			%h1
+				Dzięki nam wypromujesz swój startup jeszcze w fazie weryfikacji!
+			%h2
+				%a{ :href => "startups/new" }
+					Dodaj Start'up już teraz	
+		%p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus aliquam risus at hendrerit dictum. Fusce dignissim posuere nulla, dapibus eleifend neque. Cras purus lorem, tristique vel vulputate consequat, commodo id massa. 

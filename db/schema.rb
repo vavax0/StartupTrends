@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140722164153) do
+ActiveRecord::Schema.define(version: 20140805132232) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "startups", force: true do |t|
     t.string   "name"
@@ -25,6 +31,8 @@ ActiveRecord::Schema.define(version: 20140722164153) do
     t.string   "website_thumbnail_content_type"
     t.integer  "website_thumbnail_file_size"
     t.datetime "website_thumbnail_updated_at"
+    t.integer  "category_id"
+    t.integer  "views",                          default: 0
   end
 
 end
