@@ -1,3 +1,8 @@
 = render :partial => "menu"
 
-= image_tag("#{@startup.website_thumbnail(:big)}")
+%div.jumbotron
+	%div.container
+	%h2= @startup.name
+	%h3= @startup.short_description
+	= image_tag("#{@startup.website_thumbnail(:big)}", class: "center-block")
+	%p=  @startup.description
