@@ -108,6 +108,10 @@ ul.nav.navbar-nav li.active a:hover {
 	margin-top: 10px;
 }
 
+.mini-box {
+	height: 385px;
+}
+
 .green {
 	color: #27ae60;
 }
@@ -218,4 +222,8 @@ h4.description {
 
 .most-viewed.show-view {
 	background: #34495e;
+}
+
+.most-viewed .mini-boxes.row {
+	border-bottom: 1px solid black;
 }
