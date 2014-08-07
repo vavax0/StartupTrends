@@ -18,6 +18,11 @@ RSpec.describe StartupsController, :type => :controller do
 			expect(assigns(:startup)).to eq startup
 		end
 
+		it 'increases views count by one' do
+			expect{ 
+					get :show , id: startup.id
+				}.to change(startup.views).by(1)
+		end
 
 		xit "should exposes startup's region" do
 			expect(assigns(:startup).regions).to eq region

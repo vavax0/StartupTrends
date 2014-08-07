@@ -8,6 +8,7 @@ FactoryGirl.define do
 		website_url 'http://www.google.pl'
 		website_thumbnail image
 		category_id 1
+		views 0
 		created_at Time.now
 	end
 end

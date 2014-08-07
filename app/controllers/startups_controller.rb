@@ -3,7 +3,8 @@ class StartupsController < ApplicationController
 	before_action :set_startup, only: [ :show, :edit, :update, :destroy ]
 
 	def show
-		@startup = Startup.all.find(params[:id])
+		@startup.views = @startup.views + 1
+		@startup.save
 	end
 
 	def new
