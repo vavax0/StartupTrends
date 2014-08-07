@@ -1,8 +1,23 @@
 = render :partial => "menu"
 
 %div.jumbotron
-	%div.container
-	%h2= @startup.name
-	%h3= @startup.short_description
-	= image_tag("#{@startup.website_thumbnail(:big)}", class: "center-block")
-	%p=  @startup.description
+	%div.container.show-view
+	%h1= @startup.name
+	%p=  @startup.short_description
+	= image_tag("#{@startup.website_thumbnail(:big)}", class: "center-block img-rounded show-img")
+	%h4.description.center-block= @startup.description
+
+	
+	%a{ :href => @startup.website_url }
+		%button.btn.btn-success.btn-lg.show-btn
+			%i.fa.fa-align-justify.fa-external-link 
+			Odwiedź
+			
+	%a{ :href => category_path(@startup.category) }
+		%button.btn.btn-success.btn-lg.show-btn
+			%i.fa.fa-align-justify.fa-bullseye
+			= "#{@startup.category.name}"
+
+	%p=  "Opublikowano: #{@startup.created_at.to_date}"
+
+= render :partial => "category_startups"
