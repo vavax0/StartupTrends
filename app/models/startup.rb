@@ -3,7 +3,7 @@ class Startup < ActiveRecord::Base
 	belongs_to :category
 
 	has_attached_file :website_thumbnail, :storage => :dropbox, 
-					  :styles => { :big => "600x450", :medium => "400x300", :thumb => "250x200" },
+					  :styles => { :big => "800x500", :medium => "400x300", :thumb => "250x200" },
 					  :dropbox_credentials => "#{Rails.root}/config/dropbox.yml", 
 					  :dropbox_options => { :path => proc { |style| "#{style}/#{id}_#{website_thumbnail.original_filename}.jpg" } }
 										
