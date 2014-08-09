@@ -30,8 +30,17 @@ gem 'imgkit'
 gem 'wkhtmltopdf'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'paperclip-dropbox', '>= 1.1.7'
-gem 'will_paginate', '~> 3.0'
 
+#Pagination
+gem 'will_paginate', '~> 3.0' 
+
+#Active_Admin
+gem 'activeadmin', github: 'gregbell/active_admin'
+
+#Devise
+gem 'devise'
+
+#Paperclip for dropbox
 gem 'aws-sdk'
 
 gem 'rails_12factor'
