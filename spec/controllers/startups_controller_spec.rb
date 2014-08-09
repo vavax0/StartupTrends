@@ -2,6 +2,19 @@ require 'rails_helper'
 
 RSpec.describe StartupsController, :type => :controller do
 
+		let(:startup) { FactoryGirl.create(:startup) }
+		let(:startup_1) { FactoryGirl.create(:startup, visible: false) }
+
+		it 'exposes startups' do
+			expect(controller.index).to include startup
+		end
+
+		it 'do not exposes startups with visible: false' do
+			expect(controller.index).to_not include startup_1
+		end
+
+
+
 	describe "GET show" do
 
 		let(:startup) { FactoryGirl.create(:startup) }
@@ -9,10 +22,6 @@ RSpec.describe StartupsController, :type => :controller do
 		before do
 			get :show, id: startup.id
 		end
-
-		it 'exposes startups' do
-			expect(controller.index).to include startup
-		end 
 
 		it 'should expose specific startup' do
 			expect(assigns(:startup)).to eq startup
