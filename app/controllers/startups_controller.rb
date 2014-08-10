@@ -30,7 +30,7 @@ class StartupsController < ApplicationController
 	
 
 	def index
-		@startups = Startup.order("created_at DESC").where(visible: true).paginate(:page => params[:page], :per_page => 5)
+		@startups = Startup.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 
 	
