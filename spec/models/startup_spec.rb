@@ -42,4 +42,5 @@ describe Startup do
 		startup.category = nil
 		expect(startup).to_not be_valid
 	end
+	
 end

@@ -1,0 +1,15 @@
+%div.jumbotron.most-viewed.show-view
+	%div.container.mini-boxes
+		%div.row
+			%h3 
+				%i.fa.fa-heart.fa-folder 
+				= "Ostatnie z kategorii: #{@startup.category.name}"
+			- @startup.category.startups.last(3).each do | startup |
+				%a{ :href => startup_path(startup) }
+					%div.col-md-4.mini-box
+						%h3= startup.name
+						%p=  startup.short_description
+						= image_tag("#{startup.website_thumbnail(:thumb)}", class: "img-rounded")
+						%a{ :href => startup_path(startup) }
+							%button.btn.btn-info.btn-self.center-block
+								Zobacz

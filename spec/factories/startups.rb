@@ -7,6 +7,7 @@ FactoryGirl.define do
 		image_url 'http://www.google.pl/khjr.jpg'
 		website_url 'http://www.google.pl'
 		website_thumbnail image
+		visible true
 		category_id 1
 		views 0
 		created_at Time.now
