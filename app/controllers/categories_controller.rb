@@ -11,12 +11,6 @@ class CategoriesController < ApplicationController
 		@startups = @category.startups.order("created_at DESC").paginate(:page => params[:page], :per_page => 15)
 	end
 
-	def create
-	end
-
-	def edit
-	end
-
 	private
 
 		def set_category 
