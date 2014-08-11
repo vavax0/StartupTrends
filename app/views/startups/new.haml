@@ -1,23 +1,28 @@
-= form_for @startup do |f|
+= render :partial => "menu"
 
-  = f.label :name
-  = f.text_field :name
-  = f.label :short_description
-  = f.text_field :short_description, as: :text, input_html: { cols: 50, rows: 3 }
-  = f.label :description
-  = f.text_field :description, as: :text, hint: "comma separated values", input_html: { cols: 50, rows: 3 }
-  = f.label :website_url
-  = f.text_field :website_url
-  = f.collection_select :category_id, Category.order(:name),:id,:name
+%div.jumbotron.categories
+  %div.container.mini-boxes
+    %h3 W tym miejscu możesz dodać własny Startup.
 
-  = f.button :submit
+    = form_for @startup do |f|
+      = f.label :Nazwa
+      = f.text_field :name
+      = f.label :Krótki_opis
+      = f.text_area :short_description
+      = f.label :description
+      = f.text_area :description, as: :text
+      = f.label :website_url
+      = f.text_field :website_url
+      = f.collection_select :category_id, Category.order(:name),:id,:name
 
-- if @startup.errors.any?
-  %div#error_explanation
-    %div.alert.alert-error
-      The form contains 
-      = pluralize(@startup.errors.count, "error")
-    %ul
-    - @startup.errors.full_messages.each do |msg|
-      %li
-        = msg
+      = f.button :submit
+
+    - if @startup.errors.any?
+      %div#error_explanation
+        %div.alert.alert-error
+          The form contains 
+          = pluralize(@startup.errors.count, "error")
+        %ul
+        - @startup.errors.full_messages.each do |msg|
+          %li
+            = msg

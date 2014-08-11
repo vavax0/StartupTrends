@@ -1,0 +1,15 @@
+%div.navbar.navbar-inverse.category-navbar{ :role => "navigation" }
+	%div.container
+		%div.navbar-header
+			%button.navbar-toggle{ :type => "button", :'data-toggle' => "collapse", :'data-target' => ".navbar-collapse" }
+				%span.sry-only Toggle navigation
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+		%div.collapse.navbar-collapse
+			%ul.nav.navbar-nav.category-nav.center-block
+				%li
+					%a{ :href => categories_path } Wszystkie
+				- @categories.each do |category|
+					%li
+						%a{ :href => category_path(category) }= category.name

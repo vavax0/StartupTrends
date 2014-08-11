@@ -1,0 +1,15 @@
+= render :partial => "layouts/header"
+
+= render :partial => "categories_menu"
+
+
+%div.jumbotron.categories
+	%div.container.mini-boxes
+		%h3.green
+			%i.fa.fa-heart.fa-lg 
+			= "Kategoria: #{@category.name}"
+		- if @startups.any?
+			= render :partial => "startup_grid"
+		- else
+			%h3 Brak wyników.
+			%h3 Prawdopodobnie jeszcze nikt nie dodał Startup'u w tej kategorii.

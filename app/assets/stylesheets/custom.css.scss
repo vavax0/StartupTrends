@@ -5,6 +5,10 @@ html {
 	background: #EEE;
 }
 
+html, body {
+	height: 100%
+}
+
 .jumbotron {
 	font-family: 'Ubuntu', sans-serif;
 	text-align: center;
@@ -231,4 +235,9 @@ h4.description {
 
 .categories .mini-boxes .row {
 	border-bottom: 1px solid #95a5a6;
+}
+
+.category-navbar {
+	background-color: white;
+	border-radius: none;
 }

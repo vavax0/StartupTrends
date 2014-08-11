@@ -8,12 +8,12 @@ class StartupsController < ApplicationController
 	end
 
 	def new
-		@startup = Startup.new
+		@startup = Startup.unscoped.new
 	end
 
 	def create
 
-		@startup = Startup.new(startup_params)
+		@startup = Startup.unscoped.new(startup_params)
 
 		@startup.smart_add_url_protocol
 
