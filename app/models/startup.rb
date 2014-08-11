@@ -2,6 +2,8 @@ class Startup < ActiveRecord::Base
 
 	belongs_to :category
 
+	default_scope { where(visible: true) }
+
 	has_attached_file :website_thumbnail, :storage => :dropbox, 
 					  :styles => { :big => "800x500", :medium => "400x300", :thumb => "250x200" },
 					  :dropbox_credentials => "#{Rails.root}/config/dropbox.yml", 
