@@ -4,7 +4,7 @@
   %div.container.mini-boxes
     %h3 W tym miejscu możesz dodać własny Startup.
 
-    = form_for @startup do |f|
+    = form_for @startup, url: preview_new_startup_path(@startup), method: :get do |f|
       = f.label :Nazwa
       = f.text_field :name
       = f.label :Krótki_opis

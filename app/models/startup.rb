@@ -10,7 +10,6 @@ class Startup < ActiveRecord::Base
 					  :dropbox_options => { :path => proc { |style| "#{style}/#{id}_#{website_thumbnail.original_filename}.jpg" } }
 										
 	validates_attachment_content_type :website_thumbnail, :content_type => /\Aimage/
-	validates :website_thumbnail, attachment_presence: true
 
 	validates :name, :description, :category_id, presence: true
 	validates :short_description, length: { maximum: 50 }

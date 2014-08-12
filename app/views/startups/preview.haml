@@ -1,0 +1,27 @@
+= render :partial => "menu"
+
+%div.jumbotron
+	%div.container.show-view
+	%h1= @startup.name
+	%p=  @startup.short_description
+	= image_tag("Miniaturka strony pojawi się po zaakceptowaniu zgłoszenia przed adnimistrację.", class: "center-block img-rounded show-img preview-img")
+	%h4.description.center-block= @startup.description
+
+	= @startup.website_thumbnail
+
+	= link_to "Greeting", '#', onclick: "window.history.back()", class: "nav_link"
+
+	
+
+	= form_for @startup do |f|
+		= f.hidden_field :name
+		= f.hidden_field :short_description
+		= f.hidden_field :description
+		= f.hidden_field :website_url
+		= f.hidden_field :category_id
+		= f.hidden_field :website_thumbnail_file_name 
+		= f.hidden_field :website_thumbnail_content_type
+		= f.hidden_field :website_thumbnail_file_size
+		= f.hidden_field :website_thumbnail_updated_at
+
+		= f.button :submit

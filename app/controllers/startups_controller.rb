@@ -8,19 +8,28 @@ class StartupsController < ApplicationController
 	end
 
 	def new
-		@startup = Startup.unscoped.new
+		@startup = Startup.new
+	end
+
+	def preview
+
+		@startup = Startup.new(startup_params)
+
+		unless @startup.smart_add_url_protocol && @startup.valid?
+			flash.now[:error] = @startup.errors.full_messages
+			render action: :new
+		end
+
 	end
 
 	def create
 
-		@startup = Startup.unscoped.new(startup_params)
-
-		@startup.smart_add_url_protocol
+		@startup = Startup.new(startup_params)
 
 		unless @startup.website_thumbnail.exists? then create_website_thumbnail(@startup) end
 
 			if @startup.save
-				flash[:success] = 'Startup was successfuly created. Please wait until administrator accept your request.'
+				flash[:success] = 'Startup został utworzony. Zostaniesz poinformowany mailowo, gdy administrator zaakceptuje zgłoszenie.'
 				redirect_to @startup
 			else
 				@startup.destroy

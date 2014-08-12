@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'startups#index'
-  resources :startups, except: [ :destroy, :edit, :update ]
+  resources :startups, except: [ :destroy, :edit, :update ] do
+    get 'preview', on: :new, via: :get
+  end
+
+
   resources :categories, only: [ :show, :index ]
   
   # The priority is based upon order of creation: first created -> highest priority.
