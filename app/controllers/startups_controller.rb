@@ -31,7 +31,7 @@ class StartupsController < ApplicationController
 		unless @startup.website_thumbnail.exists? then create_website_thumbnail(@startup) end
 
 			if @startup.save
-				flash[:success] = 'Startup został utworzony. Zostaniesz poinformowany mailowo, gdy administrator zaakceptuje zgłoszenie.'
+				flash[:success] = "Profil Startup'u został utworzony. Zostaniesz poinformowany mailowo, gdy administrator zaakceptuje zgłoszenie."
 				redirect_to @startup
 			else
 				@startup.destroy
