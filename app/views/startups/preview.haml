@@ -13,6 +13,8 @@
 
 	= link_to "Powrót", '#', onclick: "window.history.back()", class: "nav_link"
 
+	= image_tag(Rails.root.join('app', 'images', 'loading.gif'), class: "img-rounded, loading_image", id: "loading_image")
+
 	= form_for @startup do |f|
 		= f.hidden_field :name
 		= f.hidden_field :short_description

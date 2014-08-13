@@ -32,10 +32,10 @@ ActiveAdmin.register Startup do
     end
 
     member_action :accept, :method => :put do
-      startup = Startup.find(params[:id])
-      startup.visible = true
-      startup.save
-      redirect_to admin_startups_path, notice: 'Startup #{startup.name} published!'
+      @startup = Startup.find(params[:id])
+      @startup.visible = true
+      @startup.save
+      redirect_to admin_startups_path, notice: 'Startup #{@startup} published!'
     end
 
 

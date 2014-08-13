@@ -8,6 +8,9 @@ class Startup < ActiveRecord::Base
 					  :styles => { :big => "800x500", :medium => "400x300", :thumb => "250x200" },
 					  :dropbox_credentials => "#{Rails.root}/config/dropbox.yml", 
 					  :dropbox_options => { :path => proc { |style| "#{style}/#{id}_#{website_thumbnail.original_filename}.jpg" } }
+
+	validates_attachment_content_type :website_thumbnail, 
+                                    :content_type => /^image\/(png|gif|jpeg)/
 										
 
 
