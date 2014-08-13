@@ -3,6 +3,7 @@ require 'rails_helper'
 describe Startup do
 
 	let(:startup)  { FactoryGirl.create(:startup) }
+	let(:startup_2)  { FactoryGirl.create(:startup) }
 	let(:category) { FactoryGirl.create(:category, id: 3) }
 
 	it 'has name, description and website_url' do
@@ -41,6 +42,16 @@ describe Startup do
 	it 'should be invalid without category name' do
 		startup.category = nil
 		expect(startup).to_not be_valid
+	end
+
+	it 'should be invalid without email' do
+		startup.email = nil
+		expect(startup).to_not be_valid
+	end
+
+	it 'should should be invalid if email is not uniqness' do
+		startup_2.email = 'xxxx@xxx.xx'
+		expect(startup_2).to_not be_valid
 	end
 	
 end
