@@ -31,8 +31,9 @@ class StartupsController < ApplicationController
 		unless @startup.website_thumbnail.exists? then create_website_thumbnail(@startup) end
 
 			if @startup.save
+				@startup.send_activation_email
 				flash[:success] = "Profil Startup'u został utworzony. Zostaniesz poinformowany mailowo, gdy administrator zaakceptuje zgłoszenie."
-				redirect_to @startup
+				redirect_to startups_path
 			else
 				@startup.destroy
 				flash.now[:error] = @startup.errors.full_messages
@@ -53,7 +54,7 @@ private
 	end
 
 	def startup_params
-		params.require(:startup).permit(:name, :description, :short_description, :website_url, :category_id)
+		params.require(:startup).permit(:name, :description, :short_description, :website_url, :category_id, :email)
 	end
 
 	def create_website_thumbnail(startup)

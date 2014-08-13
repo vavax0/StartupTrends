@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'activations/update'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   root 'startups#index'
@@ -8,6 +10,9 @@ Rails.application.routes.draw do
     get 'preview', on: :new, via: :get
   end
 
+  resources :activations, only: [ :update ]
+
+  match 'activations/:id', to: 'activations#update', via: :get
 
   resources :categories, only: [ :show, :index ]
   

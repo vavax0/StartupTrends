@@ -50,7 +50,6 @@ describe Startup do
 	end
 
 	it 'should should be invalid if email is not uniqness' do
-		startup_2.email = 'xxxx@xxx.xx'
 		expect(startup_2).to_not be_valid
 	end
 	

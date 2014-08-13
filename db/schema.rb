@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140813090045) do
+ActiveRecord::Schema.define(version: 20140813093532) do
 
   create_table "active_admin_comments", force: true do |t|
     t.string   "namespace"
@@ -68,6 +68,8 @@ ActiveRecord::Schema.define(version: 20140813090045) do
     t.integer  "views",                          default: 0
     t.boolean  "visible",                        default: false
     t.string   "email"
+    t.string   "activation_token"
+    t.boolean  "email_active",                   default: false
   end
 
 end

@@ -13,6 +13,8 @@
       = f.text_area :description, as: :text
       = f.label :website_url
       = f.text_field :website_url
+      = f.label :email
+      = f.email_field :email
       = f.collection_select :category_id, Category.order(:name),:id,:name
 
       = f.button :submit

@@ -10,6 +10,7 @@ FactoryGirl.define do
 		visible true
 		category_id 1
 		views 0
+		email 'xxxx@xxx.xx'
 		created_at Time.now
 	end
 end

@@ -9,6 +9,8 @@
 	%h3= "Kategoria: #{@startup.category}"
 	%h4.description.center-block= @startup.description
 
+	%h3= @startup.email
+
 	= link_to "Powrót", '#', onclick: "window.history.back()", class: "nav_link"
 
 	= form_for @startup do |f|
@@ -21,5 +23,6 @@
 		= f.hidden_field :website_thumbnail_content_type
 		= f.hidden_field :website_thumbnail_file_size
 		= f.hidden_field :website_thumbnail_updated_at
+		= f.hidden_field :email
 
 		= f.button :submit
