@@ -15,7 +15,9 @@ class StartupsController < ApplicationController
 
 		@startup = Startup.new(startup_params)
 
-		unless @startup.smart_add_url_protocol && @startup.valid?
+		@startup.smart_add_url_protocol 
+
+		unless @startup.valid?
 			flash.now[:error] = @startup.errors.full_messages
 			render action: :new
 		end
@@ -40,14 +42,14 @@ class StartupsController < ApplicationController
 	
 
 	def index
-		@startups = Startup.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
+		@startups = Startup.all.published.order("created_at DESC").paginate(:page => params[:page], :per_page => 5)
 	end
 
 	
 private
 
 	def set_startup
-		@startup = Startup.all.find(params[:id])
+		@startup = Startup.all.published.find(params[:id])
 	end
 
 	def startup_params

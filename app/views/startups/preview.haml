@@ -7,11 +7,7 @@
 	= image_tag("Miniaturka strony pojawi się po zaakceptowaniu zgłoszenia przed adnimistrację.", class: "center-block img-rounded show-img preview-img")
 	%h4.description.center-block= @startup.description
 
-	= @startup.website_thumbnail
-
 	= link_to "Greeting", '#', onclick: "window.history.back()", class: "nav_link"
-
-	
 
 	= form_for @startup do |f|
 		= f.hidden_field :name
