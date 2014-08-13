@@ -11,7 +11,7 @@ class UrlValidator < ActiveModel::EachValidator
 
 		rescue
 			false
-			record.errors[attribute] << (options[:message] || "wrong website URL")
+			record.errors[attribute] << (options[:message] || "Niepoprawny adres URL")
 	end
 
 end

@@ -2,12 +2,14 @@
 
 %div.jumbotron
 	%div.container.show-view
-	%h1= @startup.name
-	%p=  @startup.short_description
-	= image_tag("Miniaturka strony pojawi się po zaakceptowaniu zgłoszenia przed adnimistrację.", class: "center-block img-rounded show-img preview-img")
+	%h1= "Nazwa: #{@startup.name}"
+	%h3= "Krótki opis: #{@startup.short_description}"
+	%p=  "Opis: #{@startup.description}"
+	%p=  "Adres: #{@startup.website_url}"
+	%h3= "Kategoria: #{@startup.category}"
 	%h4.description.center-block= @startup.description
 
-	= link_to "Greeting", '#', onclick: "window.history.back()", class: "nav_link"
+	= link_to "Powrót", '#', onclick: "window.history.back()", class: "nav_link"
 
 	= form_for @startup do |f|
 		= f.hidden_field :name
