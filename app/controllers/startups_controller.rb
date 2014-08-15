@@ -32,7 +32,7 @@ class StartupsController < ApplicationController
 
 			if @startup.save & @startup.website_thumbnail.exists?
 				@startup.send_activation_email
-				flash[:success] = "Profil Startup'u został utworzony. Zostaniesz poinformowany mailowo, gdy administrator zaakceptuje zgłoszenie."
+				flash[:success] = "Profil Startup'u został utworzony. Na Twój adres email została wysłana wiadomość z linkiem do weryfikacji."
 				redirect_to root_path
 			else
 				@startup.destroy

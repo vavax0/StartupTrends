@@ -15,36 +15,8 @@
 //= require turbolinks
 //= require_tree .
 
-
-function create() {
-
-    $('#loading_image').show();
-
-    $.ajax({
-     type: 'POST',
-     url: 'startups/create',
-     data: $('form').serialize(),
-     success: createSuccessHandler,
-     error: createErrorHandler,
-     complete: hideLoadingImage
-    });
-
-}
-
-function createSuccessHandler(data) {
-
-    alert("User created!")
-
-}
-
-function createErrorHandler(data) {
-
-    alert("It failed, ffs!")
-
-}
-
-function hideLoadingImage() {
-
-    $('#loading_image').hide()
-
-}
+$(document).ready(function () {
+    var url = window.location;
+            // Will only work if string in href matches with location
+        $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
+});

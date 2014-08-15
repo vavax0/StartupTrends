@@ -1,30 +1,41 @@
-= render :partial => "menu"
+= render :partial => "layouts/header"
 
 %div.jumbotron
 	%div.container.show-view
-	%h1= "Nazwa: #{@startup.name}"
-	%h3= "Krótki opis: #{@startup.short_description}"
-	%p=  "Opis: #{@startup.description}"
-	%p=  "Adres: #{@startup.website_url}"
-	%h3= "Kategoria: #{@startup.category}"
-	%h4.description.center-block= @startup.description
 
-	%h3= @startup.email
+		%h2 Podsumowanie
 
-	= link_to "Powrót", '#', onclick: "window.history.back()", class: "nav_link"
+		%h3.prev.center-block
+			%b Nazwa:
+			= @startup.name
+		%h4.prev.center-block
+			%b Krótki opis: 
+			= @startup.short_description
+		%h4.prev.center-block
+			%b Opis:
+			= @startup.description
 
-	= image_tag(Rails.root.join('app', 'images', 'loading.gif'), class: "img-rounded, loading_image", id: "loading_image")
+		%h4.prev.center-block 
+			%b Adres strony:
+			= @startup.website_url
 
-	= form_for @startup do |f|
-		= f.hidden_field :name
-		= f.hidden_field :short_description
-		= f.hidden_field :description
-		= f.hidden_field :website_url
-		= f.hidden_field :category_id
-		= f.hidden_field :website_thumbnail_file_name 
-		= f.hidden_field :website_thumbnail_content_type
-		= f.hidden_field :website_thumbnail_file_size
-		= f.hidden_field :website_thumbnail_updated_at
-		= f.hidden_field :email
+		%h4.prev.center-block
+			%b Adres Email:
+			= @startup.email
 
-		= f.button :submit
+		= form_for @startup do |f|
+			= f.hidden_field :name
+			= f.hidden_field :short_description
+			= f.hidden_field :description
+			= f.hidden_field :website_url
+			= f.hidden_field :category_id
+			= f.hidden_field :website_thumbnail_file_name 
+			= f.hidden_field :website_thumbnail_content_type
+			= f.hidden_field :website_thumbnail_file_size
+			= f.hidden_field :website_thumbnail_updated_at
+			= f.hidden_field :email
+
+			= link_to "Popraw", '#', onclick: "window.history.back()", class: 'btn btn-info btn-self btn-lg btn-prev'
+			= f.button :Zarejestruj, :class => "btn btn-default btn-success btn-lg"
+
+			%h5 * W czasie tworzenia profilu pobrana zostanie miniaturka Państwa strony - może to zająć nawet kilkadziesiąt sekund. Prosimy o cierpliwość.

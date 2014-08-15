@@ -1,5 +1,15 @@
 = render :partial => "main_header"
 
+- if flash.any?
+	- flash.each do | name, msg |
+		%div.alert.alert-success.alert-dismissible{ :role => "alert" }
+			%button.close{ :type => "button", :'data-dismiss' => "alert" }
+				%span{ :'aria-hidden' => true }
+					&times;
+				%span.sr-only
+					Close
+			= content_tag :div, msg, class: name
+
 %div.jumbotron.most-viewed
 	%div.container.mini-boxes
 		%div.row

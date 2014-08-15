@@ -1,30 +1,56 @@
-= render :partial => "menu"
+= render :partial => "layouts/header"
 
 %div.jumbotron.categories
   %div.container.mini-boxes
-    %h3 W tym miejscu możesz dodać własny Startup.
+    %h3 
+      %i.fa.fa-thumbs-o-up.fa-lg 
+      W tym miejscu możesz dodać własny Startup.
 
-    = form_for @startup, url: preview_new_startup_path(@startup), method: :get do |f|
-      = f.label :Nazwa
-      = f.text_field :name
-      = f.label :Krótki_opis
-      = f.text_area :short_description
-      = f.label :description
-      = f.text_area :description, as: :text
-      = f.label :website_url
-      = f.text_field :website_url
-      = f.label :email
-      = f.email_field :email
+    = form_for @startup, url: preview_new_startup_path(@startup), method: :get, :html => { :class => "form-horizontal center-block" } do |f|
+
+      %legend Wypełnij poniższe pola
+
+      %div.form-group
+        = f.label :'nazwa*', :class => "col-lg-2 control-label"
+        %div.col-lg-10
+          = f.text_field :name, :class => "form-control"
+
+      %div.form-group
+        = f.label :'krótki opis*', :class => "col-lg-2 control-label"
+        %div.col-lg-10
+          = f.text_area :short_description, :placeholder => 'Maksymalnie 70 znaków', :class => "form-control"
+
+      %div.form-group
+        = f.label :'opis*', :class => "col-lg-2 control-label"
+        %div.col-lg-10
+          = f.text_area :description, :rows => 5,  as: :text, :class => "form-control"
+
+      %div.form-group
+        = f.label :'adres strony*', :class => "col-lg-2 control-label"
+        %div.col-lg-6
+          = f.text_field :website_url, :class => "form-control"
+
+      %div.form-group
+        = f.label :'adres e-mail*', :class => "col-lg-2 control-label"
+        %div.col-lg-6
+          = f.email_field :email, :class => "form-control"
+
+      %div.form-group
+        = f.label :kategoria, :class => "col-lg-2 control-label"
+        %div.col-lg-4
+          = f.collection_select :category_id, Category.order(:name),:id,:name, {:prompt=>true}, { :class => "form-control" }
+
       = f.hidden_field :slug
-      = f.collection_select :category_id, Category.order(:name),:id,:name
 
-      = f.button :submit
+      %h5.pull-left * - pola obowiązkowe
+
+      = f.button :Zarejestruj, :class => "btn btn-default btn-success btn-lg pull-right"
 
     - if @startup.errors.any?
       %div#error_explanation
         %div.alert.alert-error
-          The form contains 
-          = pluralize(@startup.errors.count, "error")
+          Formularz zawiera błędy - ilość:
+          = @startup.errors.count
         %ul
         - @startup.errors.full_messages.each do |msg|
           %li

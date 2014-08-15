@@ -221,11 +221,10 @@ li {
 	text-align: center;
 }
 
-h4.description {
+.prev {
 	font-weight: 400;
 	width: 55%;
 	line-height: 26px;
-	text-align: center;
 }
 
 .most-viewed.show-view {
@@ -258,4 +257,47 @@ h4.description {
 .img-index {
 	border: 10px solid #EEE;
 	border-radius: 8px;
+}
+
+/* FOOTER TO BOTTOM */
+	  /* START */
+/* FOOTER TO BOTTOM */
+
+* {
+    margin: 0;
+}
+html, body {
+    height: 100%;
+}
+.wrapper {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -160px; /* the bottom margin is the negative value of the footer's height */
+}
+footer, .push {
+    height: 160px; /* .push must be the same height as .footer */
+}
+
+/* FOOTER TO BOTTOM */
+	  /* END */
+/* FOOTER TO BOTTOM */
+
+.form-horizontal legend {
+	margin-bottom: 20px;
+	border: none;
+}
+
+.form-horizontal {
+	width: 75%;
+}
+
+.container.show-view h3, .container.show-view h4 {
+	border-bottom: 1px solid #bdc3c7;
+	margin: 0 auto;
+	padding: 25px 0;
+}
+
+.btn-prev {
+	margin-top: 15px;
 }
