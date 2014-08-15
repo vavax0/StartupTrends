@@ -15,6 +15,7 @@
       = f.text_field :website_url
       = f.label :email
       = f.email_field :email
+      = f.hidden_field :slug
       = f.collection_select :category_id, Category.order(:name),:id,:name
 
       = f.button :submit

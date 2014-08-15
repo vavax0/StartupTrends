@@ -1,5 +1,9 @@
 class Startup < ActiveRecord::Base
 
+	before_validation do
+		slug_make
+	end
+
 	belongs_to :category
 
 	scope :published, -> { where(visible: true) }
@@ -14,11 +18,19 @@ class Startup < ActiveRecord::Base
 										
 
 
-	validates :name, :description, :category_id, presence: true
-	validates :short_description, length: { maximum: 50 }
+	validates :name, :description, :category_id, :slug, presence: true
+	validates :short_description, length: { maximum: 70 }
 	validates :website_url, presence: true, url: true
 	validates :email, presence: true
 
+
+	def to_param  # overridden
+    	slug
+  	end
+
+  	def slug_make
+  		self.slug = self.name.downcase.gsub(" ", "-").gsub(".", "-")
+  	end
 
 	def smart_add_url_protocol
   		unless self.website_url[/\Ahttp:\/\//] || self.website_url[/\Ahttps:\/\//]

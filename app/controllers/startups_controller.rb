@@ -30,10 +30,10 @@ class StartupsController < ApplicationController
 
 		unless @startup.website_thumbnail.exists? then create_website_thumbnail(@startup) end
 
-			if @startup.save
+			if @startup.save & @startup.website_thumbnail.exists?
 				@startup.send_activation_email
 				flash[:success] = "Profil Startup'u został utworzony. Zostaniesz poinformowany mailowo, gdy administrator zaakceptuje zgłoszenie."
-				redirect_to startups_path
+				redirect_to root_path
 			else
 				@startup.destroy
 				flash.now[:error] = @startup.errors.full_messages
@@ -50,7 +50,7 @@ class StartupsController < ApplicationController
 private
 
 	def set_startup
-		@startup = Startup.all.published.find(params[:id])
+		@startup = Startup.all.published.find_by_slug(params[:id])
 	end
 
 	def startup_params
@@ -60,7 +60,7 @@ private
 	def create_website_thumbnail(startup)
 		kit = IMGKit.new(startup.website_url.to_s)
 		img = kit.to_img(:jpg)
-		file = Tempfile.new(["thumbnail_#{startup.name}", 'jpg'], 'tmp', :encoding => 'ascii-8bit')
+		file = Tempfile.new(["thumbnail_#{startup.name.gsub(".", "-")}", 'jpg'], 'tmp', :encoding => 'ascii-8bit')
 		file.write(img)
 		file.flush
 		startup.website_thumbnail = file

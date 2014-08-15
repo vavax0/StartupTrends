@@ -6,7 +6,7 @@
 			%h3.green
 				%i.fa.fa-heart.fa-lg 
 				Najczęściej odwiedzane
-			- @startups.last(3).each do | startup |
+			- @startups.order("views DESC").last(3).each do | startup |
 				%a{ :href => startup_path(startup) }
 					%div.col-md-4.mini-box
 						%h3= startup.name
@@ -25,14 +25,17 @@
 			%div.row.startup-row
 				%div.col-md-6.parent
 					%div.child
-						%h3= startup.name
+						%h2= startup.name
 						%h5= "Kategoria: #{startup.category.name}"
 						%h4= startup.short_description
 						%p=  if startup.description.length > 120 then startup.description.first(120) + "..." else startup.description end
-						%button.btn.btn-success.btn-lg
-							=link_to "Zobacz", startup_path(startup)
+
+						%a{ :href => startup_path(startup) }
+							%button.btn.btn-success.btn-lg
+								Zobacz
+
 				%div.col-md-6
-					= image_tag("#{startup.website_thumbnail(:medium)}", class: "center-block")
+					= image_tag("#{startup.website_thumbnail(:medium)}", class: "center-block img-index")
 
 
 

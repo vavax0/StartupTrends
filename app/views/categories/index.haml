@@ -1,21 +1,5 @@
 = render :partial => "layouts/header"
-
-%div.jumbotron.most-viewed
-	%div.container
-		%div.navbar.navbar-inverse{ :role => "navigation" }
-			%div.navbar-header
-				%button.navbar-toggle{ :type => "button", :'data-toggle' => "collapse", :'data-target' => ".navbar-collapse" }
-					%span.sry-only Toggle navigation
-					%span.icon-bar
-					%span.icon-bar
-					%span.icon-bar
-			%div.collapse.navbar-collapse
-				%ul.nav.navbar-nav.category-nav.center-block
-					%li
-						%a Wszystkie
-					- @categories.each do |category|
-						%li
-							%a{ :href => categories_path }= category.name
+= render :partial => "categories_menu"
 
 %div.jumbotron.most-viewed
 	%div.container.mini-boxes

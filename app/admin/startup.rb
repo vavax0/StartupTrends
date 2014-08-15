@@ -24,6 +24,7 @@ ActiveAdmin.register Startup do
       column :views
       column :visible
       column :created_at
+      column :email_active
 
       column "Acceptance" do |startup|
         link_to "Accpet", accept_admin_startup_path(startup), :method => :put
@@ -32,7 +33,7 @@ ActiveAdmin.register Startup do
     end
 
     member_action :accept, :method => :put do
-      @startup = Startup.find(params[:id])
+      @startup = Startup.find_by_slug(params[:id])
       @startup.visible = true
       @startup.save
       redirect_to admin_startups_path, notice: 'Startup #{@startup} published!'
