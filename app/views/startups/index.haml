@@ -16,7 +16,7 @@
 			%h3.green
 				%i.fa.fa-heart.fa-lg 
 				Najczęściej odwiedzane
-			- @startups.order("views DESC").last(3).each do | startup |
+			- Startup.all.published.order("views DESC").last(3).each do | startup |
 				%a{ :href => startup_path(startup) }
 					%div.col-md-4.mini-box
 						%h3= startup.name
@@ -48,6 +48,7 @@
 					= image_tag("#{startup.website_thumbnail(:medium)}", class: "center-block img-index")
 
 
-
-				
-= will_paginate @startups		
+%div.jumbotron
+	%div.container
+		%div.center-block			
+			= will_paginate @startups, renderer: BootstrapPagination::Rails

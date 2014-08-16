@@ -33,6 +33,7 @@ gem 'paperclip-dropbox', '>= 1.1.7'
 
 #Pagination
 gem 'will_paginate', '~> 3.0' 
+gem 'will_paginate-bootstrap'
 
 #Active_Admin
 gem 'activeadmin', github: 'gregbell/active_admin'

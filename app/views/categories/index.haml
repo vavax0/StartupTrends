@@ -17,3 +17,7 @@
 							%a{ :href => startup_path(startup) }
 								%button.btn.btn-info.btn-self.center-block
 									Zobacz
+%div.jumbotron
+	%div.container
+		%div.center-block			
+			= will_paginate @startups, renderer: BootstrapPagination::Rails

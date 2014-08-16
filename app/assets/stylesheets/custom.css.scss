@@ -301,3 +301,51 @@ footer, .push {
 .btn-prev {
 	margin-top: 15px;
 }
+
+/* PAGINATION STYLES */
+/* PAGINATION STYLES */
+
+ul.pagination {
+	text-align: center;
+	float: none;
+}
+
+.pagination > .active > span {
+	border: none;
+	background-color: #27ae60;
+}
+
+.pagination > .disabled > span {
+	background-color: #34495e;
+}
+
+.pagination > li > span {
+	border: none;
+	color: white;
+}
+
+.pagination > li > a {
+	border: none;
+	background: none;
+	background-color: white;
+	color: #34495e;
+}
+
+.pagination > li > a:hover {
+	border: none;
+	background: none;
+	background-color: white;
+	color: #27ae60;
+}
+
+.pagination a {
+	background: white;
+	color: #34495e;
+	box-shadow: none;
+}
+
+
+.pagination > li:first-child > span {
+	border: none;
+	background-color: #34495e;
+}

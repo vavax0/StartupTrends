@@ -13,3 +13,8 @@
 		- else
 			%h3 Brak wyników.
 			%h3 Prawdopodobnie jeszcze nikt nie dodał Startup'u w tej kategorii.
+
+%div.jumbotron
+	%div.container
+		%div.center-block			
+			= will_paginate @startups, renderer: BootstrapPagination::Rails

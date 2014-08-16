@@ -15,6 +15,9 @@ Rails.application.routes.draw do
   match 'activations/:id', to: 'activations#update', via: :get
 
   resources :categories, only: [ :show, :index ]
+
+  get "static_pages/events"
+  get "static_pages/aboutus"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
