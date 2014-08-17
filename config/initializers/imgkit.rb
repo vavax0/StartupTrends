@@ -1,8 +1,10 @@
 IMGKit.configure do |config|
 
-
-  config.wkhtmltoimage = Rails.root.join('bin', 'wkhtmltoimage-amd64').to_s if ENV['RACK_ENV'] == 'production'
-  config.wkhtmltoimage = '/home/wkhtmltoimage'.to_s
+	if ENV['RACK_ENV'] == 'production'
+	  config.wkhtmltoimage = Rails.root.join('bin', 'wkhtmltoimage-amd64').to_s
+	else
+	  config.wkhtmltoimage = '/home/wkhtmltoimage'.to_s
+	end
 
   side_size = 1280
   crop_side_size = 1280
