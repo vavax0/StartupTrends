@@ -163,6 +163,11 @@ ul.nav.navbar-nav li.active a:hover {
 	height: 400px;
 }
 
+.newsletter-row {
+	position: relative;
+	height: 100px;
+}
+
 .parent {
 	display: table;
 	table-layout: fixed;
@@ -348,4 +353,27 @@ ul.pagination {
 .pagination > li:first-child > span {
 	border: none;
 	background-color: #34495e;
+}
+
+div.jumbotron.dissmiss {
+	padding: 10px auto;
+}
+
+.newsletter-row .form-control {
+	background: none;
+	border: 3px solid white;
+	height: 45px;
+	color: white;
+	margin-right: 4px;
+}
+
+.newsletter-row .input-group-btn:last-child > .btn {
+	margin-left: 4px;
+	height: 45px;
+	border: none;
+	background-color: white;
+}
+
+.newsletter-row .input-group-btn.input-group-btn {
+	margin-left: 3px;
 }

@@ -10,7 +10,34 @@
 					Close
 			= content_tag :div, msg, class: name
 
-%div.jumbotron.most-viewed
+%div.jumbotron.most-viewed.show-view.alert-dismissible{ :role => "alert" }
+	%button.close{ :type => "button", :'data-dismiss' => "alert" }
+		%span{ :'aria-hidden' => true }
+			&times;
+		%span.sr-only
+			Close
+	%div.container
+		%div.row.newsletter-row
+			%div.col-md-6.parent
+				%form.form-group.child{ :action => "http://startuptreds.us8.list-manage.com/subscribepost?u=afc77733a83c002482cf1399a&amp;id=ffcacf1dfd", :post => "post", :target => "_blank" }
+					%label.control-label
+						Zapisz się do newslettera
+					%div.input-group
+						%input.form-control{ :type => "email", :value => "", :id => "mce-EMAIL", :name => "EMAIL", :placeholder => "Adres email" } 
+						%div{ :style => "position: absolute; left: -5000px;" } 
+							%input{ :type => "text", :name => "b_afc77733a83c002482cf1399a_ffcacf1dfd", :tabindex => "-1", :value => "" }
+						%span.input-group-btn
+							%button.btn.btn-default{ :type => "submit", :value => "Subscribe", :name => "subscribe", :id => "mc-embedded-subscribe" }
+								Zapisz się
+			%div.col-md-6.parent
+				%div.child
+					%h4 Social Media - Podziel się
+					%span{ :class => 'st_twitter_hcount', :displayText => 'Tweet' }
+					%span{ :class => 'st_fblike_hcount', :displayText => 'Facebook Like' }
+					%span{ :class => 'st_twitterfollow_hcount', :displayText => 'Twitter Follow', :st_username => '1morning1coffee' }
+			
+
+%div.jumbotron.most-viewed.dismiss
 	%div.container.mini-boxes
 		%div.row
 			%h3.green

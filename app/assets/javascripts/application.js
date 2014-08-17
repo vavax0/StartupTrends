@@ -10,13 +10,20 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require jquery
-//= require jquery_ujs
+
+
 //= require turbolinks
 //= require_tree .
+//= require bootstrap
+//= require jquery
+//= require jquery_ujs
 
-$(document).ready(function () {
-    var url = window.location;
-            // Will only work if string in href matches with location
-        $('ul.nav a[href="'+ url +'"]').parent().addClass('active');
-});
+$(document).ready(function(){
+
+    $(".close").click(function(){
+
+        $(".alert").alert();
+
+    });
+
+});  
