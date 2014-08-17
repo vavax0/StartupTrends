@@ -26,7 +26,6 @@ gem 'haml'
 gem 'bootstrap-sass'
 gem 'thin'
 gem 'imgkit'
-gem 'wkhtmltopdf'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'paperclip-dropbox', '>= 1.1.7'
 
@@ -43,9 +42,6 @@ gem 'devise'
 #Paperclip for dropbox
 gem 'aws-sdk'
 
-gem 'rails_12factor'
-
-
 group :development, :test do
 	gem 'sqlite3'
 	gem 'rspec-rails'
@@ -55,6 +51,7 @@ end
 
 group :production do
 	gem 'pg'
+	gem 'rails_12factor'
 end
 
 
@@ -72,4 +69,4 @@ end
 # gem 'debugger', group: [:development, :test]
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin]
+#gem 'tzinfo-data', platforms: [:mingw, :mswin]
