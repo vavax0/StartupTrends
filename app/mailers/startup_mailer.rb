@@ -3,7 +3,7 @@ class StartupMailer < ActionMailer::Base
 
 	def activation_email(startup)
 		@startup = startup
-		mail to: startup.email, subject: "Email Aktywacyjny"
+		mail to: startup.email, subject: "StartupTrends - Zweryfikuj swój adres email."
 	end
 
 end
