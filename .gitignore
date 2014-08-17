@@ -15,6 +15,6 @@
 /log/*.log
 /tmp
 
-/config/secrets.yml
-/config/dropbox.yml
-/config/initializers/setup_mail.rb
+config/dropbox.yml
+config/initializers/setup_mail.rb
+config/secrets.yml
