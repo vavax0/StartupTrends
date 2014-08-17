@@ -24,7 +24,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'haml'
 gem 'bootstrap-sass'
-gem 'thin'
 gem 'imgkit'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
 gem 'paperclip-dropbox', '>= 1.1.7'
@@ -43,6 +42,7 @@ gem 'devise'
 gem 'aws-sdk'
 
 group :development, :test do
+	gem 'thin'
 	gem 'sqlite3'
 	gem 'rspec-rails'
 	gem 'capybara'
