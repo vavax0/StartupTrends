@@ -25,7 +25,6 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'haml'
 gem 'bootstrap-sass'
 gem 'thin'
-gem 'grabzit'
 gem 'imgkit'
 gem 'wkhtmltopdf'
 gem 'paperclip', :git => "git://github.com/thoughtbot/paperclip.git"
@@ -55,6 +54,7 @@ group :development, :test do
 end
 
 group :production do
+	gem 'pg'
 end
 
 
