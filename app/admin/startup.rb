@@ -1,5 +1,23 @@
 ActiveAdmin.register Startup do
 
+      around_filter do |controller, action|
+      Startup.class_eval do
+        def to_param
+          id.to_s
+        end
+      end
+
+      begin
+        action.call
+      ensure
+        Startup.class_eval do
+          def to_param
+            slug
+          end
+        end
+      end
+    end
+
     menu :priority => 1
 
     config.sort_order = "created_at"
@@ -33,7 +51,7 @@ ActiveAdmin.register Startup do
     end
 
     member_action :accept, :method => :put do
-      @startup = Startup.find_by_slug(params[:id])
+      @startup = Startup.find(params[:id])
       @startup.visible = true
       @startup.save
       redirect_to admin_startups_path, notice: 'Startup #{@startup} published!'
