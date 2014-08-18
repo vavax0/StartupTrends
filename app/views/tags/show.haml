@@ -1,0 +1,13 @@
+= render :partial => "layouts/header"
+
+%div.jumbotron.categories
+	%div.container.mini-boxes
+		%h3.green
+			%i.fa.fa-heart.fa-lg 
+			= "Tag: ##{@tag.name}"
+		= render :partial => "categories/startup_grid"
+
+%div.jumbotron
+	%div.container
+		%div.center-block			
+			= will_paginate @startups, renderer: BootstrapPagination::Rails

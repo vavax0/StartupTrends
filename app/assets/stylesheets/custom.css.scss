@@ -6,7 +6,8 @@ html {
 }
 
 html, body {
-	height: 100%
+	height: 100%;
+	background-color: #EEE;
 }
 
 a, a:link {
@@ -385,4 +386,13 @@ div.jumbotron.dissmiss {
 .img-team {
 	height: 250px;
 	border: 10px solid white;
+}
+
+.container.show-view h3.tags {
+	border: none;
+}
+
+.categories .mini-boxes .row.tags {
+	border: none;
+	padding: 10px auto;
 }

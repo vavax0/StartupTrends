@@ -40,6 +40,11 @@
         %div.col-lg-4
           = f.collection_select :category_id, Category.order(:name),:id,:name, {:prompt=>true}, { :class => "form-control" }
 
+      %div.form-group
+        = f.label :'tagi', :class => "col-lg-2 control-label"
+        %div.col-lg-6
+          = f.text_field :tag_list, :class => "form-control"
+
       = f.hidden_field :slug
 
       %h5.pull-left * - pola obowiązkowe

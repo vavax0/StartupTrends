@@ -1,0 +1,6 @@
+- @tags.each_slice(6) do |slice|
+	%div.row.tags
+		- slice.each do |tag|
+			%a{ :href => tag_path(tag) }
+				%div.col-md-2
+					%a{ :href => tag_path(tag) }= "##{tag.name}"

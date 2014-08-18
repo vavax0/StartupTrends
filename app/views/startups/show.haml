@@ -7,6 +7,12 @@
 		= image_tag("#{@startup.website_thumbnail(:big)}", class: "center-block img-rounded show-img")
 		%h4.description.center-block= @startup.description
 
+		%h3.tags Tagi:
+		%h5.tags
+			- @startup.tags.each do |tag|
+				%a{ :href => tag_path(tag) }
+					= "##{tag.name}"
+
 		
 		%a{ :href => @startup.website_url }
 			%button.btn.btn-success.btn-lg.show-btn

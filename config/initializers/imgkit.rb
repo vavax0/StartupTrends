@@ -3,7 +3,7 @@ IMGKit.configure do |config|
 	if ENV['RACK_ENV'] == 'production'
 	  config.wkhtmltoimage = Rails.root.join('bin', 'wkhtmltoimage-amd64').to_s
 	else
-	  config.wkhtmltoimage = '/home/wkhtmltoimage'.to_s
+	  config.wkhtmltoimage = '/home/vava/wkhtmltoimage'.to_s
 	end
 
   side_size = 1280

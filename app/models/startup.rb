@@ -5,6 +5,8 @@ class Startup < ActiveRecord::Base
 	end
 
 	belongs_to :category
+	has_many :taggings
+	has_many :tags, through: :taggings
 
 	scope :published, -> { where(visible: true) }
 
@@ -17,7 +19,7 @@ class Startup < ActiveRecord::Base
                                     :content_type => /^image\/(png|gif|jpeg)/
 
 
-  validates :name, presence: true, uniqueness: true
+  	validates :name, presence: true, uniqueness: true
 	validates :description, :category_id, :slug, presence: true
 	validates :short_description, length: { maximum: 70 }
 	validates :website_url, presence: true, url: true
@@ -26,11 +28,11 @@ class Startup < ActiveRecord::Base
 
 	def to_param  # overridden
     	slug
-  end
+  	end
 
-  def slug_make
-  	self.slug = self.name.downcase.gsub(" ", "-").gsub(".", "-")
-  end
+  	def slug_make
+  		self.slug = self.name.downcase.gsub(" ", "-").gsub(".", "-")
+  	end
 
 	def smart_add_url_protocol
   	unless self.website_url[/\Ahttp:\/\//] || self.website_url[/\Ahttps:\/\//]
@@ -48,5 +50,16 @@ class Startup < ActiveRecord::Base
 		self.save
 	end
 
+	def tag_list
+		self.tags.collect do |tag|
+			tag.name
+		end.join(", ")
+	end
+
+	def tag_list=(tag_string)
+		tag_names = tag_string.split(", ").collect{|s| s.strip.downcase }.uniq
+		new_or_found_tags = tag_names.collect{ |name| Tag.find_or_create_by(name: name) }
+		self.tags = new_or_found_tags
+	end
 
 end

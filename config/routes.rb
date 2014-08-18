@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  get 'tags/index'
+
+  get 'tags/show'
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
 
@@ -14,6 +18,7 @@ Rails.application.routes.draw do
   match 'activations/:id', to: 'activations#update', via: :get
 
   resources :categories, only: [ :show, :index ]
+  resources :tags, only: [ :show, :index ]
 
   get 'activations/update'
   get "static_pages/events"

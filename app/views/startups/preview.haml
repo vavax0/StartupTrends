@@ -20,8 +20,14 @@
 			= @startup.website_url
 
 		%h4.prev.center-block
+			%b Tagi:
+			- @startup.tags.each do |tag|
+				= "##{tag.name}"
+
+		%h4.prev.center-block
 			%b Adres Email:
 			= @startup.email
+
 
 		= form_for @startup do |f|
 			= f.hidden_field :name
@@ -34,6 +40,7 @@
 			= f.hidden_field :website_thumbnail_file_size
 			= f.hidden_field :website_thumbnail_updated_at
 			= f.hidden_field :email
+			= f.hidden_field :tag_list
 
 			= link_to "Popraw", '#', onclick: "window.history.back()", class: 'btn btn-info btn-self btn-lg btn-prev'
 			= f.button :Zarejestruj, :class => "btn btn-default btn-success btn-lg"

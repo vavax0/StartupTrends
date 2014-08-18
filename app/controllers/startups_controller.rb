@@ -54,7 +54,7 @@ private
 	end
 
 	def startup_params
-		params.require(:startup).permit(:name, :description, :short_description, :website_url, :category_id, :email)
+		params.require(:startup).permit(:name, :description, :short_description, :website_url, :category_id, :email, :tag_list)
 	end
 
 	def create_website_thumbnail(startup)
