@@ -14,7 +14,7 @@ class CategoriesController < ApplicationController
 	private
 
 		def categories_all
-			@categories = Category.all
+			@categories = Category.all.order("name DESC")
 		end
 
 end
