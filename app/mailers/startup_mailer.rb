@@ -1,5 +1,5 @@
 class StartupMailer < ActionMailer::Base
-  default from: "vavax0@gmail.com"
+  default from: "info@startuptrends.pl"
 
 	def activation_email(startup)
 		@startup = startup
