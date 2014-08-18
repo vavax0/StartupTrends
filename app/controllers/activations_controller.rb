@@ -5,7 +5,7 @@ class ActivationsController < ApplicationController
 
   	@startup.email_active = true
   	@startup.save
-  	flash[:success] = "Twójemail został zweryfikowany. Wkrótce opublikujemy Twój Startup."
+  	flash[:success] = "Twój email został zweryfikowany. Wkrótce opublikujemy Twój Startup."
   	redirect_to root_path
   end
 

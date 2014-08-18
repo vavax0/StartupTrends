@@ -1,11 +1,10 @@
 Rails.application.routes.draw do
 
-
-  get 'activations/update'
-
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
+
   root 'startups#index'
+
   resources :startups, except: [ :destroy, :edit, :update ] do
     get 'preview', on: :new, via: :get
   end
@@ -16,6 +15,7 @@ Rails.application.routes.draw do
 
   resources :categories, only: [ :show, :index ]
 
+  get 'activations/update'
   get "static_pages/events"
   get "static_pages/aboutus"
   

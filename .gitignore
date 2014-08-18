@@ -18,3 +18,5 @@
 config/dropbox.yml
 config/initializers/setup_mail.rb
 config/secrets.yml
+
+/app/assests
