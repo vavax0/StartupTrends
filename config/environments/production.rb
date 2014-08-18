@@ -35,7 +35,7 @@ Rails.application.configure do
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
 
-  config.action_mailer.default_url_options = { :host => 'http://blooming-woodland-5750.herokuapp.com' }
+  config.action_mailer.default_url_options = { :host => 'http://www.startuptrends.pl' }
   
 
   # Specifies the header that your server uses for sending files.
