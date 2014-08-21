@@ -5,7 +5,7 @@
 		%h1= @startup.name
 		%p=  @startup.short_description
 		= image_tag("#{@startup.website_thumbnail(:big)}", class: "center-block img-rounded show-img")
-		%h4.description.center-block= @startup.description
+		%h4.description.center-block= @startup.description.gsub(/(?:\n\r?|\r\n?)/, '<br>').html_safe
 
 		%h3.tags Tagi:
 		%h5.tags
