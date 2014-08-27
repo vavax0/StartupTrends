@@ -1,6 +1,7 @@
 class TagsController < ApplicationController
   def index
-  	@tags = Tag.all
+  	@tag_all = Startup.published.map { |startup| startup.tags }
+  	@tags = @tag_all[0]
   end
 
   def show
