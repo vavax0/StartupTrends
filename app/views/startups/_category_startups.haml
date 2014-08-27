@@ -4,7 +4,7 @@
 			%h3 
 				%i.fa.fa-heart.fa-folder 
 				= "Ostatnie z kategorii: #{@startup.category.name}"
-			- @startup.category.startups.last(3).each do | startup |
+			- @startup.category.startups.published.last(3).each do | startup |
 				%a{ :href => startup_path(startup) }
 					%div.col-md-4.mini-box
 						%h3= startup.name
