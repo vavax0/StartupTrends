@@ -43,7 +43,7 @@
 			%h3.green
 				%i.fa.fa-heart.fa-lg 
 				Najczęściej odwiedzane
-			- Startup.all.published.order("views DESC").last(3).each do | startup |
+			- Startup.all.published.order("views ASC").last(3).each do | startup |
 				%a{ :href => startup_path(startup) }
 					%div.col-md-4.mini-box
 						%h3= startup.name
